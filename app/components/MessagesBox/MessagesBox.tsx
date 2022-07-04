@@ -34,7 +34,14 @@ function MessagesBox({ ...rest }) {
   }, [msgs]);
 
   return (
-    <Box ref={msgsRef} p="1" pb="2rem" overflowY="scroll" h="90vh" {...rest}>
+    <Box
+      ref={msgsRef}
+      p="1"
+      pb="2rem"
+      overflowY="scroll"
+      h="calc(100vh - 5rem)"
+      {...rest}
+    >
       {msgs[channel].map((msg, id) => (
         <MsgElem msg={msg} key={id} />
       ))}
