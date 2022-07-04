@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setChannel } from "stores/channelSlice";
 import { RootState } from "stores/store";
 import { AddChannelModal } from "./AddChannelModal";
+import ChannelsWrapper from "./ChannelsWrapper";
 
 type ChannelBoxProps = {
   name: string;
@@ -30,7 +31,7 @@ function ChannelBox({ name, selected }: ChannelBoxProps) {
       mt="1"
     >
       <FiHash />{" "}
-      <Text pl="1" fontWeight={selected ? "bold" : "normal"}>
+      <Text pl="1" fontWeight={selected ? "black" : "normal"}>
         {name}
       </Text>
     </Button>
@@ -58,15 +59,9 @@ function ChannelsBox({ ...rest }) {
 
   const msgs = useSelector((state: RootState) => state.msgs);
   const channel = useSelector((state: RootState) => state.channel);
+
   return (
-    <Box
-      p="1"
-      w={["0", "20vw", "15vw", "15vw", "15vw"]}
-      h="100%"
-      display={["none", "block", "block", "block", "block"]}
-      borderBottomRightRadius="0.5rem"
-      {...rest}
-    >
+    <ChannelsWrapper p="1" {...rest}>
       <AddChannelModal
         isOpen={isOpen}
         close={() => {
@@ -81,10 +76,12 @@ function ChannelsBox({ ...rest }) {
           }}
         />
       </Flex>
-      {Object.keys(msgs).map((key) => (
-        <ChannelBox selected={channel === key} name={key} key={key} />
-      ))}
-    </Box>
+      <Box h="calc(100vh - 7rem)" overflowY="scroll">
+        {Object.keys(msgs).map((key) => (
+          <ChannelBox selected={channel === key} name={key} key={key} />
+        ))}
+      </Box>
+    </ChannelsWrapper>
   );
 }
 

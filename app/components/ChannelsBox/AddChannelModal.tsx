@@ -60,6 +60,7 @@ export function AddChannelModal({ isOpen, close }: AddChannelModalProps) {
                 <IconButton
                   icon={<FiChevronRight />}
                   aria-label="Add channel"
+                  type="submit"
                   size="sm"
                   fontSize="2xl"
                   colorScheme="primary"

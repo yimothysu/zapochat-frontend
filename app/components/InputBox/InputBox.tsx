@@ -64,7 +64,7 @@ function InputBox() {
               size="sm"
               icon={<FiChevronRight />}
               aria-label="Go"
-              color="white"
+              color="lightDark"
               colorScheme="primary"
               fontSize="2xl"
             />

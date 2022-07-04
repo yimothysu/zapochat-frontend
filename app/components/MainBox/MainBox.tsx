@@ -6,7 +6,7 @@ import MessagesBox from "../MessagesBox/MessagesBox";
 function MainBox() {
   return (
     <HStack align="top" spacing="0">
-      <ChannelsBox />
+      <ChannelsBox overflowY="scroll" />
       <Box w="100vw" p="1">
         <ClientsBox float="right" />
         <MessagesBox maxWidth="100%" />

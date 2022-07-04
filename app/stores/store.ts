@@ -4,6 +4,7 @@ import clientsReducer from "./clientsSlice";
 import msgsReducer from "./msgsSlice";
 import errorsReducer from "./errorsSlice";
 import channelReducer from "./channelSlice";
+import uiReducer from "./uiSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     msgs: msgsReducer,
     errors: errorsReducer,
     channel: channelReducer,
+    ui: uiReducer,
   },
 });
 

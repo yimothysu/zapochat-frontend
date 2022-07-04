@@ -24,7 +24,7 @@ export function EmojiButton({
           size="sm"
           icon={<FiSmile />}
           aria-label="Pick Emoji"
-          color="white"
+          color="lightDark"
           colorScheme="primary"
           fontSize="2xl"
         />
