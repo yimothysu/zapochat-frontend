@@ -1,6 +1,10 @@
 import { SendMsg } from "../types/msg";
 import { socket } from "./socketio";
 
+export const setName = (name: string) => {
+  socket.emit("setName", name);
+};
+
 export const join = (name: string) => {
   socket.emit("join", name);
 };

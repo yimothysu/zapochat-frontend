@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { socket } from "lib/socketio";
 import { newClient } from "stores/clientsSlice";
 import { setName } from "stores/nameSlice";
+import { join } from "lib/sendEvents";
 
 function LandingModal() {
   const { onOpen, onClose } = useDisclosure();
@@ -31,6 +32,7 @@ function LandingModal() {
     if (inputElem.current) {
       const name = inputElem.current.value;
       dispatch(setName(name));
+      join(name);
       dispatch(newClient({ id: socket.id, name: name }));
     }
 
