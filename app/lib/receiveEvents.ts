@@ -2,6 +2,7 @@ import { Socket } from "socket.io-client";
 import { newClient, NewClientAction, removeClient } from "stores/clientsSlice";
 import { newError, resolveError } from "stores/errorsSlice";
 import { newChannel, newMsg } from "stores/msgsSlice";
+import { setName } from "stores/nameSlice";
 import { store } from "stores/store";
 import { ReceiveMsg } from "types/msg";
 
@@ -17,6 +18,7 @@ export const socketToEvents: (arg0: Socket) => EventsType = (
         msg: "Not connected. Attempting to reconnect...",
       })
     );
+    store.dispatch(setName(store.getState().name.name));
   },
   newClient: (newClientAction: NewClientAction) => {
     store.dispatch(newClient(newClientAction));
